@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camara - FIVC</title>
+    <link href="index.html" rel="import" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+   
+</head>
+<body>
+    <a-scene embedded arjs="debugUIEnabled: false;" vr-mode-ui="enabled: false">
+        <a-marker  preset="custom" type="pattern" id="marcador">
+            <a-box scale="1 1 1" id="entityID1">
+          </a-box>
+        </a-marker>
+        <a-entity camera ></a-entity>
+       </a-scene>
+     <script>
+         var todasLasCookies = x=document.cookie;
+         console.log(x);
+         var micookie = (document.cookie.indexOf('n=') === -1 ? '' : ("; " + document.cookie).split('; n=')[1].split(';')[0]);
+         var mo = micookie.substr(0, micookie.lastIndexOf('Patrones')) || micookie; 
+         console.log(mo);
+        var el = document.querySelector('#entityID1');
+        el.removeAttribute("gltf-model");
+        el.setAttribute("gltf-model", mo);
+         el.setAttribute("scale", '1 1 1');  
+         var miruta = (document.cookie.indexOf('r=') === -1 ? '' : ("; " + document.cookie).split('; r=')[1].split(';')[0]);
+         var rutaa = miruta.substr(0, miruta.lastIndexOf('Patrones')) || miruta; 
+         var e = document.querySelector('#marcador');
+         e.removeAttribute("url");
+         e.setAttribute("url", rutaa);
+         e.setAttribute("animation-mixer", '');
+         console.log(rutaa);
+     </script>
+</body>
+
+</html>
